@@ -16,16 +16,20 @@ public class Spreadsheet implements Grid
 		String[] userInput = command.split(" ", 3);
 		if((userInput[0].toLowerCase().equals("clear")) && userInput.length == 2) {
 			clear(userInput[1]);
-		}else if(userInput[0].toLowerCase().equals("clear")) {
+		}
+		else if(userInput[0].toLowerCase().equals("clear")) {
 			clear();
-		}else if(userInput.length == 1 && !userInput[0].equals("clear")) {
+		}
+		else if(userInput.length == 1 && !userInput[0].equals("clear")) {
 			SpreadsheetLocation loc = new SpreadsheetLocation(userInput[0]);
 			return getCell(loc).fullCellText();
-		}else if(userInput.length == 3){
+		}
+		else if(userInput.length == 3){
 			SpreadsheetLocation loc = new SpreadsheetLocation(userInput[0]);
 			grid[loc.getRow()][loc.getCol()] = new TextCell(userInput[2]);
 			return getGridText();
-		}else {
+		}
+		else {
 			return "Invalid command";
 		}
 		
@@ -62,7 +66,8 @@ public class Spreadsheet implements Grid
 			if(i < 9) {
 				sheet += i + 1 + "  ";
 				
-			}else {
+			}
+			else {
 				sheet += i + 1 + " ";
 			}
 			for(int j = 0; j < grid[i].length; j++) {
