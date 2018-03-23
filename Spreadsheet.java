@@ -20,7 +20,7 @@ public class Spreadsheet implements Grid
 		else if(userInput[0].toLowerCase().equals("clear")) {
 			clear();
 		}
-		else if(userInput.length == 1 && !userInput[0].equals("clear")) {
+		else if(userInput.length == 1) {
 			SpreadsheetLocation loc = new SpreadsheetLocation(userInput[0]);
 			return getCell(loc).fullCellText();
 		}
