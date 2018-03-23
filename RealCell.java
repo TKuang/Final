@@ -6,10 +6,7 @@ public abstract class RealCell implements Cell{
 	
 	public abstract double getDoubleValue();
 	
-	
 	public abstract String abbreviatedCellText(); 
-		
-	
 	
 	public abstract String fullCellText();
 	
