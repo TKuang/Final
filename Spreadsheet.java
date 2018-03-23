@@ -30,7 +30,7 @@ public class Spreadsheet implements Grid
 			return getGridText();
 		}
 		else {
-			return "Invalid command";
+			return "Invalid input";
 		}
 		
 		return getGridText();
