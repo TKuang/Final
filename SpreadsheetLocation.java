@@ -11,16 +11,17 @@ public class SpreadsheetLocation implements Location
     public int getRow()
     {
         // TODO Auto-generated method stub
-		int rowNum = Integer.parseInt(cellName.substring(1));
-        return rowNum - 1;
+	int row = Integer.parseInt(cellName.substring(1)) - 1;
+        return row;
     }
 
     @Override
     public int getCol()
     {
         // TODO Auto-generated method stub
-    	char colLetter = Character.toLowerCase(cellName.charAt(0));
-        return ((int)colLetter - 'a');
+    	char letter = Character.toLowerCase(cellName.charAt(0));
+        int column = (int)Letter - 'a';
+	return column;
     }
 
 }
