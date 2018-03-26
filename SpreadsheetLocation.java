@@ -2,9 +2,9 @@
 
 public class SpreadsheetLocation implements Location
 {
-	private String cellName = "";
-    public SpreadsheetLocation(String cellName) {
-    	this.cellName = cellName;
+	private String cellName;
+	public SpreadsheetLocation(String cellName) {
+    		this.cellName = cellName;
     }
 	
 	@Override
