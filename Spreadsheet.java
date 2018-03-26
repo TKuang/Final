@@ -13,21 +13,20 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String command)
 	{
-		String[] userInput = command.split(" ", 3);
-		if((userInput[0].toLowerCase().equals("clear")) && userInput.length == 2) {
-			clear(userInput[1]);
-		}
-		else if(userInput[0].toLowerCase().equals("clear")) {
+		String[] input = command.split(" ", 3);
+		if((input[0].toLowerCase().equals("clear")){
+			if(input.length == 2) {
+				clear(input[1]);
+				}
 			clear();
 		}
-		else if(userInput.length == 1) {
-			SpreadsheetLocation loc = new SpreadsheetLocation(userInput[0]);
-			return getCell(loc).fullCellText();
+		else if(input.length == 1) {
+			SpreadsheetLocation location = new SpreadsheetLocation(input[0]);
+			return getCell(location).fullCellText();
 		}
-		else if(userInput.length == 3){
-			SpreadsheetLocation loc = new SpreadsheetLocation(userInput[0]);
-			grid[loc.getRow()][loc.getCol()] = new TextCell(userInput[2]);
-			return getGridText();
+		else if(input.length == 3){
+			SpreadsheetLocation location = new SpreadsheetLocation(input[0]);
+			grid[location.getRow()][location.getCol()] = new TextCell(input[2]);
 		}
 		else {
 			return "Invalid input";
