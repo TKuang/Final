@@ -6,13 +6,13 @@ public class TextExcel
 {
 	public static void main(String[] args)
 	{
-		Scanner input = new Scanner(System.in);
+	    Scanner input = new Scanner(System.in);
 	    String userInput = "";
-	    boolean done = false;
-	    while(!done) {
+	    boolean finish = false;
+	    while(!finish) {
 	    	userInput = input.nextLine();
 	    	if(userInput.equals("quit")) {
-	    		done = true;
+	    		finish = true;
 	    	}
 	    }
 	}
