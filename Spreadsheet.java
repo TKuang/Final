@@ -1,3 +1,5 @@
+package textExcel;
+
 public class Spreadsheet implements Grid
 {
 	private int row = 20;
@@ -14,7 +16,7 @@ public class Spreadsheet implements Grid
 	public String processCommand(String command)
 	{
 		String[] input = command.split(" ", 3);
-		if((input[0].toLowerCase().equals("clear")){
+		if((input[0].toLowerCase().equals("clear"))){
 			if(input.length == 2) {
 				clear(input[1]);
 				}
@@ -25,8 +27,20 @@ public class Spreadsheet implements Grid
 			return getCell(location).fullCellText();
 		}
 		else if(input.length == 3){
+			String operation = input[2];
 			SpreadsheetLocation location = new SpreadsheetLocation(input[0]);
-			grid[location.getRow()][location.getCol()] = new TextCell(input[2]);
+			if(operation.contains("\"")) {
+				grid[location.getRow()][location.getCol()] = new TextCell(operation);
+			}
+			else if(operation.contains("%")) {
+				grid[location.getRow()][location.getCol()] = new PercentCell(operation);
+			}
+			else if(operation.contains("(")) {
+				grid[location.getRow()][location.getCol()] = new FormulaCell(operation);
+			}
+			else {
+				grid[location.getRow()][location.getCol()] = new ValueCell(operation);
+			}
 		}
 		else {
 			return "Invalid input";
