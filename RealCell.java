@@ -1,7 +1,8 @@
 public abstract class RealCell implements Cell{
-	private String entry;
-	public RealCell(String entry) {
-		this.entry = entry;
+	private String input;
+	
+	public RealCell(String input) {
+		this.input = input;
 	}
 	
 	public abstract double getDoubleValue();
@@ -10,14 +11,14 @@ public abstract class RealCell implements Cell{
 	
 	public abstract String fullCellText();
 	
-	public String fillSpaces(String input) {
-		while(input.length() < 10) {
-			input += " ";
+	public String spaces(String value) {
+		while(value.length() < 10) {
+			value += " ";
 		}
-		return input;
+		return value;
 	}
 	
 	public String getRealCell() {
-		return entry;
+		return input;
 	}
 }
