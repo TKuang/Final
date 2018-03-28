@@ -1,16 +1,19 @@
-public ValueCell extends RealCell{
-  
-  	public ValueCell(String entry) {
-		  super(entry);
+package textExcel;
+
+public class ValueCell extends RealCell{
+	  
+  	public ValueCell(String input) {
+		  super(input);
 	}
-	public String abbreviatedCellText() {
+  	public String abbreviatedCellText() {
 		String text = Double.toString(getDoubleValue());
 		if(text.length() < 10) {
-			if(!text.contains(".")) {    //checks if its a whole number 
+			if(!text.contains(".")) {    
 				text += ".0";
 			}
-			return super.fillSpaces(text);
-		}else {	
+			return super.spaces(text);
+		}
+		else {	
 			return text.substring(0,10);
 		}
 	}
