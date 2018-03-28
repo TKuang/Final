@@ -1,27 +1,26 @@
-//Update this file with your own code.
+package textExcel;
 
 public class SpreadsheetLocation implements Location
 {
-	private String cellName;
-	public SpreadsheetLocation(String cellName) {
-    		this.cellName = cellName;
+	private String cell = "";
+    public SpreadsheetLocation(String cell) {
+    	this.cell = cell;
     }
 	
 	@Override
     public int getRow()
     {
         // TODO Auto-generated method stub
-	int row = Integer.parseInt(cellName.substring(1)) - 1;
-        return row;
+		int rowNum = Integer.parseInt(cell.substring(1));
+        return rowNum - 1;
     }
 
     @Override
     public int getCol()
     {
         // TODO Auto-generated method stub
-    	char letter = Character.toLowerCase(cellName.charAt(0));
-        int column = (int)Letter - 'a';
-	return column;
+    	char colLetter = Character.toLowerCase(cell.charAt(0));
+        return ((int)colLetter - 'a');
     }
 
 }
