@@ -20,7 +20,9 @@ public class Spreadsheet implements Grid
 			if(input.length == 2) {
 				clear(input[1]);
 				}
-			clear();
+			else {
+				clear();
+			}
 		}
 		else if(input.length == 1) {
 			SpreadsheetLocation location = new SpreadsheetLocation(input[0]);
@@ -34,9 +36,6 @@ public class Spreadsheet implements Grid
 			}
 			else if(operation.contains("%")) {
 				grid[location.getRow()][location.getCol()] = new PercentCell(operation);
-			}
-			else if(operation.contains("(")) {
-				grid[location.getRow()][location.getCol()] = new FormulaCell(operation);
 			}
 			else {
 				grid[location.getRow()][location.getCol()] = new ValueCell(operation);
@@ -103,4 +102,5 @@ public class Spreadsheet implements Grid
 			}
 		}
 	}
+
 }
