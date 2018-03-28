@@ -47,9 +47,9 @@ public class Spreadsheet implements Grid
 	}
 
 	@Override
-	public Cell getCell(Location loc)
+	public Cell getCell(Location location)
 	{
-		return grid[loc.getRow()][loc.getCol()];
+		return grid[location.getRow()][location.getCol()];
 	}
 
 	@Override
@@ -77,8 +77,8 @@ public class Spreadsheet implements Grid
 		return sheet;
 	}
 	
-	public void clear(String cellName) {
-		SpreadsheetLocation loc = new SpreadsheetLocation(cellName);
+	public void clear(String cell) {
+		SpreadsheetLocation loc = new SpreadsheetLocation(cell);
 		grid[loc.getRow()][loc.getCol()] = new EmptyCell();
 	}
 	
