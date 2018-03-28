@@ -1,12 +1,12 @@
 public class TextCell implements Cell{
-	private String entry;
-	public TextCell(String entry) {
-		this.entry = entry;
+	private String input;
+	public TextCell(String input) {
+		this.input = intpu;
 	}
 	
 	
 	public String abbreviatedCellText() {
-		String abbr = entry.substring(1, entry.length()-1);
+		String abbr = input.substring(1, input.length()-1);
 		if(abbr.length() < 10) {
 			while(abbr.length() < 10) {
 				abbr += " ";
@@ -19,6 +19,6 @@ public class TextCell implements Cell{
 	}
 	
 	public String fullCellText() {
-		return entry;
+		return input;
 	}
 }
