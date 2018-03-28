@@ -1,7 +1,9 @@
+package textExcel;
+
 public class TextCell implements Cell{
 	private String input;
 	public TextCell(String input) {
-		this.input = intput;
+		this.input = input;
 	}
 	
 	
