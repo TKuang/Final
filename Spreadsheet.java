@@ -78,8 +78,8 @@ public class Spreadsheet implements Grid
 	}
 	
 	public void clear(String cell) {
-		SpreadsheetLocation loc = new SpreadsheetLocation(cell);
-		grid[loc.getRow()][loc.getCol()] = new EmptyCell();
+		SpreadsheetLocation location = new SpreadsheetLocation(cell);
+		grid[location.getRow()][location.getCol()] = new EmptyCell();
 	}
 	
 	public void clear() {
