@@ -1,7 +1,7 @@
 public class TextCell implements Cell{
 	private String input;
 	public TextCell(String input) {
-		this.input = intpu;
+		this.input = intput;
 	}
 	
 	
