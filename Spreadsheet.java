@@ -6,11 +6,7 @@ public class Spreadsheet implements Grid
 	private int col = 12;
 	private Cell[][] grid = new Cell[row][col];
 	public Spreadsheet(){
-		for(int i = 0; i < 20; i++) {
-			for(int j = 0; j < 12; j++) {
-				grid[i][j] = new EmptyCell();
-			}
-		}
+		clear();  //constructs empty grid
 	}
 	@Override
 	public String processCommand(String command)
@@ -24,21 +20,21 @@ public class Spreadsheet implements Grid
 				clear();
 			}
 		}
-		else if(input.length == 1) {
+		else if(input.length == 1) {	
 			SpreadsheetLocation location = new SpreadsheetLocation(input[0]);
 			return getCell(location).fullCellText();
 		}
 		else if(input.length == 3){
-			String operation = input[2];
+			String stored = input[2];
 			SpreadsheetLocation location = new SpreadsheetLocation(input[0]);
-			if(operation.contains("\"")) {
-				grid[location.getRow()][location.getCol()] = new TextCell(operation);
+			if(stored.contains("\"")) {
+				grid[location.getRow()][location.getCol()] = new TextCell(stored);
 			}
-			else if(operation.contains("%")) {
-				grid[location.getRow()][location.getCol()] = new PercentCell(operation);
+			else if(stored.contains("%")) {
+				grid[location.getRow()][location.getCol()] = new PercentCell(stored);
 			}
 			else {
-				grid[location.getRow()][location.getCol()] = new ValueCell(operation);
+				grid[location.getRow()][location.getCol()] = new ValueCell(stored);
 			}
 		}
 		else {
@@ -102,5 +98,4 @@ public class Spreadsheet implements Grid
 			}
 		}
 	}
-
 }
