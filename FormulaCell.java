@@ -29,16 +29,20 @@ public class FormulaCell extends RealCell{
 		else {
 			for(int i = 2; i < arr.length; i++) {
 				if(arr[1].equals("+")) {
-					result = Double.parseDouble(arr[0]) + Double.parseDouble(arr[2]) + Double.parseDouble(arr[i+1]);
+					result = Double.parseDouble(arr[0]) + Double.parseDouble(arr[2]) 
+					result += Double.parseDouble(arr[i+1]);
 				}
 				else if(arr[1].equals("-")) {
-					result = Double.parseDouble(arr[0]) - Double.parseDouble(arr[2]) - Double.parseDouble(arr[i+1]);
+					result = Double.parseDouble(arr[0]) - Double.parseDouble(arr[2]) 
+					result -= Double.parseDouble(arr[i+1]);
 				}
 				else if(arr[1].equals("*")) {
-					result = Double.parseDouble(arr[0]) * Double.parseDouble(arr[2]) * Double.parseDouble(arr[i+1]);
+					result = Double.parseDouble(arr[0]) * Double.parseDouble(arr[2]) 
+					result *= Double.parseDouble(arr[i+1]);
 				}
 				else if(arr[1].equals("/")){
-					result = Double.parseDouble(arr[0]) / Double.parseDouble(arr[2]) / Double.parseDouble(arr[i+1]);
+					result = Double.parseDouble(arr[0]) / Double.parseDouble(arr[2]) 
+					result /= Double.parseDouble(arr[i+1]);
 				}
 			}
 		}
