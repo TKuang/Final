@@ -1,7 +1,7 @@
 public class FormulaCell extends RealCell{
 	
-  public FormulaCell(String entry) {
-		super(entry);
+  public FormulaCell(String input) {
+		super(input);
 	}
 	
   public String abbreviatedCellText() {
