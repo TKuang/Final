@@ -5,11 +5,12 @@ public class FormulaCell extends RealCell{
 	}
 	
   public String abbreviatedCellText() {
-		String finalString = getDoubleValue() + "";
-		if(finalString.length() < 10) {
-			return fillSpaces(finalString);
-		}else {
-			return finalString.substring(0, 10);
+		String display = getDoubleValue() + "";
+		if(display.length() < 10) {
+			return fillSpaces(display);
+		}
+	  	else {
+			return display.substring(0, 10);
 		}
 		
 	}
