@@ -14,7 +14,8 @@ public class Spreadsheet implements Grid
 		String[] input = command.split(" ", 3);
 		if((input[0].toLowerCase().equals("clear"))){
 			if(input.length == 2) {
-				clear(input[1]);
+				SpreadsheetLocation location = new SpreadsheetLocation(input[1]);
+				grid[location.getRow()][location.getCol()] = new EmptyCell();
 				}
 			else {
 				clear();
@@ -85,12 +86,6 @@ public class Spreadsheet implements Grid
 		}
 		return sheet;
 	}
-	
-	public void clear(String cell) {
-		SpreadsheetLocation location = new SpreadsheetLocation(cell);
-		grid[location.getRow()][location.getCol()] = new EmptyCell();
-	}
-	
 	public void clear() {
 		for(int i = 0; i < grid.length; i++) {
 			for(int j = 0; j < grid[i].length; j++) {
