@@ -25,30 +25,20 @@ public class FormulaCell extends RealCell{
 		double result = 0;
 		if(arr.length == 1) {
 			result = Double.parseDouble(arr[0]);
-		}else {
-			if(arr[1].equals("+")) {
-				result = Double.parseDouble(arr[0]) + Double.parseDouble(arr[2]);
-			}else if(arr[1].equals("-")) {
-				result = Double.parseDouble(arr[0]) - Double.parseDouble(arr[2]);
-			}else if(arr[1].equals("*")) {
-				result = Double.parseDouble(arr[0]) * Double.parseDouble(arr[2]);
-			}else if(arr[1].equals("/")){
-				result = Double.parseDouble(arr[0]) / Double.parseDouble(arr[2]);
-			}
 		}
-		
-		if(arr.length == 1) {
-			result = Double.parseDouble(arr[0]);
-		}else{
+		else {
 			for(int i = 2; i < arr.length; i++) {
-				if(arr[i].equals("+")){
-					result += Double.parseDouble(arr[i+1]);
-				}else if(arr[i].equals("-")) {
-					result -= Double.parseDouble(arr[i+1]);
-				}else if(arr[i].equals("*")){
-					result *= Double.parseDouble(arr[i+1]);
-				}else if(arr[i].equals("/")){
-					result /= Double.parseDouble(arr[i+1]);
+				if(arr[1].equals("+")) {
+					result = Double.parseDouble(arr[0]) + Double.parseDouble(arr[2]) + Double.parseDouble(arr[i+1]);
+				}
+				else if(arr[1].equals("-")) {
+					result = Double.parseDouble(arr[0]) - Double.parseDouble(arr[2]) - Double.parseDouble(arr[i+1]);
+				}
+				else if(arr[1].equals("*")) {
+					result = Double.parseDouble(arr[0]) * Double.parseDouble(arr[2]) * Double.parseDouble(arr[i+1]);
+				}
+				else if(arr[1].equals("/")){
+					result = Double.parseDouble(arr[0]) / Double.parseDouble(arr[2]) / Double.parseDouble(arr[i+1]);
 				}
 			}
 		}
