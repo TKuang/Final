@@ -20,8 +20,8 @@ public class FormulaCell extends RealCell{
 	}
 	
 	public double getDoubleValue() {
-		String modified = getRealCell().substring(2, getRealCell().length()-2);
-		String[] arr = modified.split(" ");
+		String formula = getRealCell().substring(2, getRealCell().length()-2);
+		String[] arr = formula.split(" ");
 		double result = 0;
 		if(arr.length == 1) {
 			result = Double.parseDouble(arr[0]);
