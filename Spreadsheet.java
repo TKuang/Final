@@ -27,7 +27,7 @@ public class Spreadsheet implements Grid
 		}
 		else if(content.length == 3){
 			String stored = content[2];
-			SpreadsheetLocation location = new SpreadsheetLocation(input[0]);
+			SpreadsheetLocation location = new SpreadsheetLocation(content[0]);
 			if(stored.contains("\"")) {
 				grid[location.getRow()][location.getCol()] = new TextCell(stored);
 			}
@@ -36,6 +36,7 @@ public class Spreadsheet implements Grid
 			}
 			else if(stored.contains("(")) {
 				grid[location.getRow()][location.getCol()] = new FormulaCell(stored);
+			}
 			else {
 				grid[location.getRow()][location.getCol()] = new ValueCell(stored);
 			}
