@@ -76,7 +76,16 @@ public class FormulaCell extends RealCell{
 			}
 			return sum;
 		}
-					
-			
+		
+		public double avg(int[] input){
+			double sum = sum(input);
+			int startrow = Integer.parseInt(arr[0].substring(1));
+			int finishrow = Integer.parseInt(arr[1].substring(1));
+			char startcol = arr[0].charAt(0);
+			char finishcol = arr[0].chartAt(0);
+			int row = finishrow - startrow + 1;
+			int col = finishcol - startcol + 1;
+			double avg = sum/(row * col);
+			return avg;	
 			
 }
