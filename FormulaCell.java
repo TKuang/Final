@@ -22,6 +22,13 @@ public class FormulaCell extends RealCell{
 	public double getDoubleValue() {
 		String formula = getRealCell().substring(2, getRealCell().length()-2);
 		String[] arr = formula.split(" ");
+		for (int i = 0; i < arr.length; i++){
+			if (arr[i] instanceof Cell){
+				SpreadsheetLocation location = new SpreadsheetLocation(arr[i]);
+				RealCell stored = getCell(location).fullCellText();
+				arr[i] = getDoubleValue(stored);
+			}
+		}
 		double result = Double.parseDouble(arr[0]);
 		if(arr.length != 1) {
 			for(int i = 1; i < arr.length; i++) {
