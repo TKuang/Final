@@ -26,7 +26,7 @@ public class FormulaCell extends RealCell{
 			if (arr[i] instanceof Cell){
 				SpreadsheetLocation location = new SpreadsheetLocation(arr[i]);
 				RealCell stored = getCell(location).fullCellText();
-				arr[i] = getDoubleValue(stored);
+				arr[i] = RealCell.getDoubleValue(stored);
 			}
 		}
 		double result = Double.parseDouble(arr[0]);
