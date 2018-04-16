@@ -11,22 +11,22 @@ public class Spreadsheet implements Grid
 	@Override
 	public String processCommand(String command)
 	{
-		String[] input = command.split(" ", 3);
-		if((input[0].toLowerCase().equals("clear"))){
-			if(input.length == 2) {
-				SpreadsheetLocation location = new SpreadsheetLocation(input[1]);
+		String[] content = command.split(" ", 3);
+		if((content[0].toLowerCase().equals("clear"))){
+			if(content.length == 2) {
+				SpreadsheetLocation location = new SpreadsheetLocation(content[1]);
 				grid[location.getRow()][location.getCol()] = new EmptyCell();
 				}
 			else {
 				clear();
 			}
 		}
-		else if(input.length == 1) {	
-			SpreadsheetLocation location = new SpreadsheetLocation(input[0]);
+		else if(content.length == 1) {	
+			SpreadsheetLocation location = new SpreadsheetLocation(content[0]);
 			return getCell(location).fullCellText();
 		}
-		else if(input.length == 3){
-			String stored = input[2];
+		else if(content.length == 3){
+			String stored = content[2];
 			SpreadsheetLocation location = new SpreadsheetLocation(input[0]);
 			if(stored.contains("\"")) {
 				grid[location.getRow()][location.getCol()] = new TextCell(stored);
@@ -34,6 +34,8 @@ public class Spreadsheet implements Grid
 			else if(stored.contains("%")) {
 				grid[location.getRow()][location.getCol()] = new PercentCell(stored);
 			}
+			else if(stored.contains("(")) {
+				grid[location.getRow()][location.getCol()] = new FormulaCell(stored);
 			else {
 				grid[location.getRow()][location.getCol()] = new ValueCell(stored);
 			}
@@ -65,8 +67,7 @@ public class Spreadsheet implements Grid
 	@Override
 	public String getGridText()
 	{
-		String sheet = "";
-		sheet += "   ";
+		String sheet = "   ";
 		for(char i = 'A'; i <= 'L'; i++) {
 			sheet += ("|" + i + "         ");
 		}
