@@ -24,10 +24,10 @@ public class FormulaCell extends RealCell{
 		String[] arr = formula.split(" ");
 		double result = 0;
 		if(arr[0].toLowerCase().equals("avg")){
-			result = avg(arr[]);
+			result = avg(arr[1].toLowerCase);
 		}
 		else if(arr[0].toLowerCase().equals("sum")){
-			result = avg(arr[]);
+			result = avg(arr[1].toLowerCase);
 		}
 		else {
 			for (int i = 0; i < arr.length; i++){
@@ -58,8 +58,8 @@ public class FormulaCell extends RealCell{
 		return result;
 	}
 		
-		public double sum(int[] input){
-			String[] arr = imput.split("-");
+		public double sum(String input){
+			String[] arr = input.split("-");
 			int startrow = Integer.parseInt(arr[0].substring(1));
 			int finishrow = Integer.parseInt(arr[1].substring(1));
 			char startcol = arr[0].charAt(0);
@@ -77,8 +77,9 @@ public class FormulaCell extends RealCell{
 			return sum;
 		}
 		
-		public double avg(int[] input){
+		public double avg(String input){
 			double sum = sum(input);
+			String[] arr = input.split("-");
 			int startrow = Integer.parseInt(arr[0].substring(1));
 			int finishrow = Integer.parseInt(arr[1].substring(1));
 			char startcol = arr[0].charAt(0);
@@ -87,5 +88,5 @@ public class FormulaCell extends RealCell{
 			int col = finishcol - startcol + 1;
 			double avg = sum/(row * col);
 			return avg;	
-			
+		}	
 }
