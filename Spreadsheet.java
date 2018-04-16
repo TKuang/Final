@@ -35,7 +35,7 @@ public class Spreadsheet implements Grid
 				grid[location.getRow()][location.getCol()] = new PercentCell(stored);
 			}
 			else if(stored.contains("(")) {
-				grid[location.getRow()][location.getCol()] = new FormulaCell(stored);
+				grid[location.getRow()][location.getCol()] = new FormulaCell(stored, this);
 			}
 			else {
 				grid[location.getRow()][location.getCol()] = new ValueCell(stored);
