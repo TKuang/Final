@@ -25,7 +25,7 @@ public class FormulaCell extends RealCell{
 		String formula = getRealCell().substring(2, getRealCell().length()-2);
 		String[] arr = formula.split(" ");
 		double result = 0;
-		/*if(arr[0].toLowerCase().equals("avg")){
+		if(arr[0].toLowerCase().equals("avg")){
 			result = avg(arr[1].toLowerCase());
 		}
 		else if(arr[0].toLowerCase().equals("sum")){
@@ -38,10 +38,10 @@ public class FormulaCell extends RealCell{
 					RealCell stored = (RealCell) grid.getCell(location);
 					arr[i] = stored.getDoubleValue() + "";
 				}
-			}*/
+			}
 			result = Double.parseDouble(arr[0]);
 			if(arr.length != 1) {
-				for(int i = 1; i < arr.length; i++) {
+				for(int i = 1; i < arr.length; i+2) {
 					if(arr[i].equals("+")){
 						result += Double.parseDouble(arr[i+1]);
 					}
@@ -70,10 +70,8 @@ public class FormulaCell extends RealCell{
 			for (char i = startcol; i <= finishcol; i++){
 				for(int j = startrow; j <= finishrow; j++){
 					SpreadsheetLocation location = new SpreadsheetLocation("" + i + j);
-					if (grid.getCell(location) instanceof Cell){
-						RealCell stored = (RealCell) grid.getCell(location);
-						sum += stored.getDoubleValue();
-					}
+					RealCell stored = (RealCell) grid.getCell(location);
+					sum += stored.getDoubleValue();
 				}
 			}
 			return sum;
