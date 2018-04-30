@@ -122,51 +122,40 @@ public class FormulaCell extends RealCell{
 	}
 }
 */
-
-	public double getDoubleValue() {
-		String modified = getRealCell().substring(2, getRealCell().length()-2);
-		String[] arr = modified.split(" ");
-		ArrayList<String> list = new ArrayList<String>(Arrays.asList(arr));
-		double[] calc = new double[(arr.length+1)/2];
-		double result = 0;
+		public double getDoubleValue() {
+		String input = getRealCell().substring(2, getRealCell().length()-2);
+		String[] arr = input.split(" ");
+		double result;
+		for (int i = 0; i< arr.length; i++) {
+			if(!(Character.isDigit(arr[0].charAt(0))) && !(arr[0].charAt(0) == '-')) {
+				RealCell temp = (RealCell) grid.getCell(new SpreadsheetLocation(arr[0]));
+				arr[i] = temp.getDoubleValue() + "";
+			}
+		}
 		if(arr[0].toLowerCase().equals("sum")) {
 			result = sum(arr[1].toLowerCase());
 		}
 		else if(arr[0].toLowerCase().equals("avg")) {
 			result = avg(arr[1].toLowerCase());
-	   	}
-		else{
-	    		for(int i = 0; i < list.size(); i++) {
-	    			if(list.get(i).length == 2 && !(Character.isDigit(list.get(i).charAt(0)))){
-	    				SpreadsheetLocation location = new SpreadsheetLocation(list.get(i));
-	    				RealCell stored = (RealCell) grid.getCell(location);
-	    				calc[i] = stored.getDoubleValue();
-	    				list.remove(i);
-	    			}
-	    			if(Character.isDigit(list.get(i).charAt(0))){
-	    				calc[i] = Double.parseDouble(list.get(i));
-	    				list.remove(i);
-	    			}
-	    	}
-				result = calc[0];
-			for(int i = 0; i < list.size(); i++) {
-				if(list.get(i).equals("+")){
-					result += calc[i+1];
-				}
-				else if(arr[i].equals("-")) {
-					result -= calc[i+1];
-				}
-				else if(arr[i].equals("*")){
-					result *= calc[i+1];
-				}
-				else if(arr[i].equals("/")){
-					result /= calc[i+1];
+	    }
+		else {
+			result = Double.parseDouble(arr[0]);
+		}
+		if(!(arr.length == 1)) {	
+			for(int i = 1; i < arr.length; i+=2) {
+				if(arr[i].equals("+")){
+					result += Double.parseDouble(arr[i+1]);
+				}else if(arr[i].equals("-")) {
+					result -= Double.parseDouble(arr[i+1]);
+				}else if(arr[i].equals("*")){
+					result *= Double.parseDouble(arr[i+1]);
+				}else if(arr[i].equals("/")){
+					result /= Double.parseDouble(arr[i+1]);
 				}
 			}
 		}
 		return result;
 	}
-	
 	public double sum(String input){
 		String[] arr = input.split("-");
 		int startrow = Integer.parseInt(arr[0].substring(1));
