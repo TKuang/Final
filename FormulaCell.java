@@ -156,33 +156,34 @@ public class FormulaCell extends RealCell{
 		}
 		return result;
 	}
-	public double sum(String input){
+	public double sum(String input) {//a1-c10
 		String[] arr = input.split("-");
-		int startrow = Integer.parseInt(arr[0].substring(1));
-		int finishrow = Integer.parseInt(arr[1].substring(1));
-		char startcol = arr[0].charAt(0);
-		char finishcol = arr[0].charAt(0);
+		int startRow = Integer.parseInt(arr[0].substring(1));
+		int endRow = Integer.parseInt(arr[1].substring(1));
+		char startCol = arr[0].charAt(0);
+		char endCol = arr[1].charAt(0);
 		double sum = 0;
-		for (char i = startcol; i <= finishcol; i++){
-			for(int j = startrow; j <= finishrow; j++){
-				SpreadsheetLocation location = new SpreadsheetLocation("" + i + j);
-				RealCell stored = (RealCell) grid.getCell(location);
-				sum += stored.getDoubleValue();
+		for(char i = startCol; i <= endCol; i++) {
+			for(int j = startRow; j <= endRow; j++) {
+				SpreadsheetLocation loc = new SpreadsheetLocation("" + i + j); 
+				if(grid.getCell(loc) instanceof RealCell) {
+					RealCell stored = (RealCell)(grid.getCell(loc));
+					sum += stored.getDoubleValue();
 				}
 			}
-		return sum;
 		}
-		
-		public double avg(String input){
-			double sum = sum(input);
-			String[] arr = input.split("-");
-			int startrow = Integer.parseInt(arr[0].substring(1));
-			int finishrow = Integer.parseInt(arr[1].substring(1));
-			char startcol = arr[0].charAt(0);
-			char finishcol = arr[0].charAt(0);
-			int row = finishrow - startrow + 1;
-			int col = finishcol - startcol + 1;
-			double avg = sum/(row * col);
-			return avg;	
+		return sum;
+	}
+	public double avg(String input) {
+		double sum = sum(input);
+		String[] arr = input.split("-");
+		int startRow = Integer.parseInt(arr[0].substring(1));
+		int endRow = Integer.parseInt(arr[1].substring(1));
+		char startCol = arr[0].charAt(0);
+		char endCol = arr[1].charAt(0);
+		int row = endRow - startRow + 1;
+		int col = endCol - startCol + 1;
+		double avg = sum/(row * col);
+		return avg;	
 	}
 }
