@@ -122,25 +122,26 @@ public class FormulaCell extends RealCell{
 	}
 }
 */
-		public double getDoubleValue() {
-		String input = getRealCell().substring(2, getRealCell().length()-2);
-		String[] arr = input.split(" ");
+	public double getDoubleValue() {
+		String modified = getRealCell().substring(2, getRealCell().length()-2);
+		String[] arr = modified.split(" ");
 		double result;
-		for (int i = 0; i< arr.length; i++) {
-			if(!(Character.isDigit(arr[0].charAt(0))) && !(arr[0].charAt(0) == '-')) {
-				RealCell temp = (RealCell) grid.getCell(new SpreadsheetLocation(arr[0]));
-				arr[i] = temp.getDoubleValue() + "";
-			}
-		}
 		if(arr[0].toLowerCase().equals("sum")) {
 			result = sum(arr[1].toLowerCase());
 		}
 		else if(arr[0].toLowerCase().equals("avg")) {
 			result = avg(arr[1].toLowerCase());
 	    }
-		else {
+		else{
+			for (int i = 0; i<arr.length; i++) {
+				if (Character.isLetter(arr[i].charAt(0)) && Character.isDigit(arr[i].charAt(1))) {
+					RealCell a = (RealCell) grid.getCell(new SpreadsheetLocation(arr[i]));
+					arr[i] = a.getDoubleValue() + "";
+				}
+			}
 			result = Double.parseDouble(arr[0]);
 		}
+		
 		if(!(arr.length == 1)) {	
 			for(int i = 1; i < arr.length; i+=2) {
 				if(arr[i].equals("+")){
@@ -156,6 +157,7 @@ public class FormulaCell extends RealCell{
 		}
 		return result;
 	}
+	
 	public double sum(String input) {//a1-c10
 		String[] arr = input.split("-");
 		int startRow = Integer.parseInt(arr[0].substring(1));
