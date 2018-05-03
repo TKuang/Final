@@ -1,8 +1,8 @@
 package textExcel;
 public class FormulaCell extends RealCell{
 	private Spreadsheet grid;
-	public FormulaCell(String entry, Spreadsheet grid) {
-		super(entry);
+	public FormulaCell(String input, Spreadsheet grid) {
+		super(input);
 		this.grid = grid;
 	}
 	
