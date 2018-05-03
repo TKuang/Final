@@ -11,7 +11,8 @@ public class FormulaCell extends RealCell{
 		String display = getDoubleValue() + "";
 		if(display.length() < 10) {
 			return spaces(display);
-		}else {
+		}
+		else {
 			return display.substring(0, 10);
 		}
 		
@@ -29,7 +30,7 @@ public class FormulaCell extends RealCell{
 		}
 		else if(arr[0].toLowerCase().equals("avg")) {
 			result = avg(arr[1].toLowerCase());
-	    }
+	   	}
 		else{
 			for (int i = 0; i<arr.length; i++) {
 				if (Character.isLetter(arr[i].charAt(0)) && Character.isDigit(arr[i].charAt(1))) {
