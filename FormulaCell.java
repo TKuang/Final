@@ -69,12 +69,10 @@ public class FormulaCell extends RealCell{
 		for(char i = startCol; i <= endCol; i++) {
 			for(int j = startRow; j <= endRow; j++) {
 				SpreadsheetLocation loc = new SpreadsheetLocation("" + i + j); 
-				if(grid.getCell(loc) instanceof RealCell) {
-					RealCell stored = (RealCell)(grid.getCell(loc));
-					sum += stored.getDoubleValue();
+				RealCell stored = (RealCell)(grid.getCell(loc));
+				sum += stored.getDoubleValue();
 				}
 			}
-		}
 		return sum;
 	}
 	public double avg(String input) {
