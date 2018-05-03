@@ -8,11 +8,11 @@ public class FormulaCell extends RealCell{
 	
 
 	public String abbreviatedCellText() {
-		String finalString = getDoubleValue() + "";
-		if(finalString.length() < 10) {
-			return spaces(finalString);
+		String display = getDoubleValue() + "";
+		if(display.length() < 10) {
+			return spaces(display);
 		}else {
-			return finalString.substring(0, 10);
+			return display.substring(0, 10);
 		}
 		
 	}
