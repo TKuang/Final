@@ -18,6 +18,7 @@ public abstract class RealCell implements Cell{
 	public String spaces(String input) {
 		while(input.length() < 10) {
 			input += " ";
+			//adds spaces until any cell has string length of 10
 		}
 		return input;
 	}
