@@ -9,9 +9,9 @@ public class Spreadsheet implements Grid
 		clear();  //constructs empty grid
 	}
 	@Override
-	public String processCommand(String command)
+	public String processCommand(String userInput)
 	{
-		String[] content = command.split(" ", 3);
+		String[] content = userInput.split(" ", 3);
 		if((content[0].toLowerCase().equals("clear"))){
 			if(content.length == 2) {
 				SpreadsheetLocation location = new SpreadsheetLocation(content[1]);
