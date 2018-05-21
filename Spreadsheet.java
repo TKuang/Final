@@ -97,6 +97,7 @@ public class Spreadsheet implements Grid
 		return sheet;
 	}
 	public void clear() {
+		//constructs a 20x12 2D array of empty cells
 		for(int i = 0; i < grid.length; i++) {
 			for(int j = 0; j < grid[i].length; j++) {
 				grid[i][j] = new EmptyCell();
