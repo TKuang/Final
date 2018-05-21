@@ -13,6 +13,7 @@ public class TextCell implements Cell{
 			while(text.length() < 10) {
 				text += " ";
 			}
+			//adds spaces to string until it reaches length of 10
 			return text;
 		}
 		else {
