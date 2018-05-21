@@ -8,12 +8,13 @@ public class TextExcel
 	{
 	    Scanner input = new Scanner(System.in);
 	    String userInput = "";
-	    boolean finish = false;
-	    while(!finish) {
+	    boolean done = false;
+	    while(done = false) {
 	    	userInput = input.nextLine();
-	    	if(userInput.equals("quit")) {
-	    		finish = true;
+	    	if(userInput == "quit") {
+	    		done = true;
 	    	}
+		//accepts input from user until user types quit
 	    }
 	}
 }
