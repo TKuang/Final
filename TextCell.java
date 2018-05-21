@@ -8,14 +8,15 @@ public class TextCell implements Cell{
 	
 	
 	public String abbreviatedCellText() {
-		String abbr = input.substring(1, input.length()-1);
-		if(abbr.length() < 10) {
-			while(abbr.length() < 10) {
-				abbr += " ";
+		String text = this.input;
+		if(text.length() < 10) {
+			while(text.length() < 10) {
+				text += " ";
 			}
-			return abbr;
-		}else {
-			return abbr.substring(0, 10);
+			return text;
+		}
+		else {
+			return text.substring(0, 10);
 		}
 		
 	}
