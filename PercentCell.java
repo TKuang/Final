@@ -7,9 +7,9 @@ public class PercentCell extends RealCell{
 	}
 	
 	public String abbreviatedCellText() {
-		String revised = super.getRealCell().substring(0, super.getRealCell().indexOf('.'));
+		String percent = super.getRealCell().substring(0, super.getRealCell().indexOf('.'));
 		//stores whole number of the percentage as it is (this method doesn't round the value)
-		return super.spaces(revised + "%");
+		return super.spaces(percent + "%");
 		//adds a percent sign to stored percentage value and adds spaces to it until it reaches length of 10
 	}
 	
