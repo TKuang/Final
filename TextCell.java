@@ -8,16 +8,16 @@ public class TextCell implements Cell{
 	
 	
 	public String abbreviatedCellText() {
-		String revised = this.input;
-		if(revised.length() < 10) {
-			while(revised.length() < 10) {
+		String text = this.input;
+		if(text.length() < 10) {
+			while(text.length() < 10) {
 				revised += " ";
 			}
 			//adds spaces to string until it reaches length of 10
-			return revised;
+			return text;
 		}
 		else {
-			return revised.substring(0, 10);
+			return text.substring(0, 10);
 		}
 		
 	}
