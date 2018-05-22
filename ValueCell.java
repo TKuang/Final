@@ -6,17 +6,17 @@ public class ValueCell extends RealCell{
 		  super(input);
 	}
   	public String abbreviatedCellText() {
-		String revised = Double.toString(getDoubleValue());
-		if(revised.length() < 10) {
-			if(!revised.contains(".")) {    
-				revised += ".0";
+		String value = Double.toString(getDoubleValue());
+		if(value.length() < 10) {
+			if(!value.contains(".")) {    
+				value += ".0";
 				//adds ".0" to the string if it doesn't contain a decimal
 			}
-			return super.spaces(revised);
+			return super.spaces(value);
 			//adds spaces to string until it reaches the length of 20
 		}
 		else {	
-			return revised.substring(0,10);
+			return value.substring(0,10);
 		}
 	}
 	
