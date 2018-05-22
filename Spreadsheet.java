@@ -93,9 +93,11 @@ public class Spreadsheet implements Grid
 				sheet += "|" + grid[i][j].abbreviatedCellText();
 			}
 			sheet += "|\n";
+			//constructs a physcial spreadhseet
 		}
 		return sheet;
 	}
+	
 	public void clear() {
 		//constructs a 20x12 2D array of empty cells
 		for(int i = 0; i < grid.length; i++) {
