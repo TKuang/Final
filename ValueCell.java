@@ -6,15 +6,15 @@ public class ValueCell extends RealCell{
 		  super(input);
 	}
   	public String abbreviatedCellText() {
-		String text = Double.toString(getDoubleValue());
-		if(text.length() < 10) {
-			if(!text.contains(".")) {    
-				text += ".0";
+		String revised = Double.toString(getDoubleValue());
+		if(revised.length() < 10) {
+			if(!revised.contains(".")) {    
+				revised += ".0";
 			}
-			return super.spaces(text);
+			return super.spaces(revised);
 		}
 		else {	
-			return text.substring(0,10);
+			return revised.substring(0,10);
 		}
 	}
 	
