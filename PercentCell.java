@@ -7,8 +7,8 @@ public class PercentCell extends RealCell{
 	}
 	
 	public String abbreviatedCellText() {
-		String text = super.getRealCell().substring(0, super.getRealCell().indexOf('.')) + "%";
-		return super.spaces(text);
+		String revised = super.getRealCell().substring(0, super.getRealCell().indexOf('.'));
+		return super.spaces(revised + "%");
 	}
 	
 	public String fullCellText() {
@@ -16,7 +16,7 @@ public class PercentCell extends RealCell{
 	}
 	
 	public double getDoubleValue() {
-		String percent = super.getRealCell().substring(0, super.getRealCell().length()-1);
+		String percent = super.getRealCell();
 		return Double.parseDouble(percent);
 	}
 		
