@@ -11,13 +11,14 @@ public class TextCell implements Cell{
 		String text = this.input;
 		if(text.length() < 10) {
 			while(text.length() < 10) {
-				revised += " ";
+				text += " ";
 			}
 			//adds spaces to string until it reaches length of 10
 			return text;
 		}
 		else {
 			return text.substring(0, 10);
+			//returns only up to length of 10 of string 
 		}
 		
 	}
